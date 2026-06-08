@@ -1,0 +1,1 @@
+export type CityVariant = 'castle' | 'citadel' | 'city' | 'dungeon' | 'fortress' | 'inferno' | 'necropolis' | 'pairing' | 'stronghold' | 'tower'
