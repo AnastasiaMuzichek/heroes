@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import RetroBox from './ui/RetroBox.vue';
+
 const props = defineProps({
     name: String,
     description: String,
@@ -7,47 +9,118 @@ const props = defineProps({
 
 <template>
     <div class="left-block">
-        <h2 class="name">{{ props.name }}</h2>
-        <div class="main-arrow"></div>
-        <p class="description">{{ props.description }}</p>
+        <RetroBox>
+            <h2 class="hero-name">{{ props.name }}</h2>
+            <p class="hero-description">{{ props.description }}</p>
+        </RetroBox>
     </div>
 </template>
 
 <style scoped>
 .left-block {
-    width: 500px;
-    height: 440px;
-    min-width: 50px;
-    position: relative;
-    align-items: flex-end;
-    display: flex;
-    flex-direction: column;
+    padding-right: 8px;
+    padding-top: 8px;
+    z-index: 2;
+    width: 30%;
 }
-.left-block .name {
-    align-self: flex-start;
+
+.hero-name {
     font-family: Impact, fantasy;
-    margin-left: 15px;
+    margin-top: 0;
     color: rgba(196, 186, 47, 0.986);
+    font-size: 22px;
+    text-align: center;
 }
 
-.main-arrow {
-    border: 3px solid rgb(125, 11, 170);
-    border-bottom-width: 0;
-    border-left-width: 0;
-    margin-right: 28px;
-    padding: 20px;
-    transform: skew(45deg);
-    width: calc(100% - 98px);
+.hero-description {
+    background-image: url('../assets/images/ui/backdrop-dark.jpg');
+    border: 1px solid #7e6956;
+    color: #ece2d1;
+    font-size: 13.3px;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
 }
 
-.description {
-    font-size: 14px;
-    margin-left: 5px;
-    margin-right: 7px;
-    align-items: center;
-    border: 2px solid rgb(125, 11, 170);
-    display: flex;
-    padding: 4px;
-    color: white;
+@media (min-width: 320px) {
+    .hero-name {
+        font-size: 15px;
+    }
+
+    .hero-description {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 425px) {
+    .hero-name {
+        font-size: 17px;
+    }
+
+    .hero-description {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-name {
+        font-size: 20px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-name {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .left-block {
+        padding-right: 14px;
+    }
+
+    .hero-name {
+        font-size: 25px;
+    }
+
+    .hero-description {
+        font-size: 17.5px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .left-block {
+        padding-right: 24px;
+    }
+
+    .hero-name {
+        font-size: 40.5px;
+    }
+
+    .hero-description {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 2560px) {
+    .hero-name {
+        font-size: 60px;
+    }
+
+    .hero-description {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .left-block {
+        padding-right: 5px;
+        margin-bottom: 8px;
+        width: auto;
+    }
 }
 </style>

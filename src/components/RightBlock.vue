@@ -1,100 +1,54 @@
 <script setup lang="ts">
-import Arrow from './Arrow.vue';
-import type { Skill } from '../constants';
+import CityBox from './ui/CityBox.vue';
+import SkillsPanel from './ui/SkillsPanel.vue';
+import type { PropType } from 'vue';
+import type { CityValue, SkillValue } from '../types.ts';
 
-const props = defineProps({
-    city: String,
-    cityImage: String,
-    skills: Array<Skill>,
+defineProps({
+    city: {
+        required: true,
+        type: Object as PropType<CityValue>,
+    },
+    skills: {
+        required: true,
+        type: Array<SkillValue>,
+    },
 });
 </script>
 
 <template>
-    <div class="information-block">
-        <div class="information-block-wrapper">
-            <div class="city">
-                <img :src="cityImage" />
-                <span>{{ `Замок: ${city}` }}</span>
-            </div>
-        </div>
-        <Arrow :horizontal="50" class="arrow-top"></Arrow>
-        <Arrow :horizontal="50" class="arrow-bottom"></Arrow>
-        <div class="information-block-wrapper">
-            <div v-for="skill in props.skills" class="skill">
-                <img :src="skill.image" style="height: 50px; width: 50px;"></img>
-                <p>{{ skill.description }}</p>
-            </div>
-        </div>
-
+    <div class="right-block">
+        <CityBox class="w-100" :name="city.name" :title="city.title"></CityBox>
+        <SkillsPanel :items="skills" class="w-100"></SkillsPanel>
     </div>
 </template>
 
 <style scoped>
-.information-block {
-    min-width: 50px;
+.right-block {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 440px;
-    width: 500px;
+    gap: 16px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-top: 8px;
+    width: 30%;
 }
 
-.information-block-wrapper {
-    padding: 8px;
-}
-    .information-block-wrapper:has(.city) {
-        padding-bottom: 0;
+@media (min-width: 1440px) {
+    .right-block {
+        padding-bottom: 16px;
+        padding-left: 16px;
     }
-    .information-block-wrapper:has(.skill) {
-        padding-top: 0;
+}
+
+@media (max-width: 1023px) {
+    .right-block {
+        gap: 8px;
+        padding: 0;
+        padding-right: 5px;
+        margin-top: 8px;
+        width: auto;
     }
-
-.arrow-top {
-    transform: rotateX(180deg);
-    width: 100px;
-}
-
-.arrow-bottom {
-    width: 100px;
-}
-
-.city {
-    align-items: center;
-    border: 2px solid rgb(125, 11, 170);
-    display: flex;
-    gap: 8px;
-    padding: 4px;
-}
-    .city img {
-        display: inline-block;
-    }
-    .city span {
-        font-size: 17px;
-        color: rgba(196, 186, 47, 0.986);
-        font-weight: bold;
-    }
-
-
-.cityName {
-    font-size: 13px;
-    font-family: 'Crimson Text SemiBold';
-    font-weight: bold;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-}
-
-.skill {
-    align-items: center;
-    border: 2px solid rgb(125, 11, 170);
-    display: flex;
-    gap: 8px;
-    padding: 4px;
-    margin-bottom: 3px;
-    
-}
-
-p {
-    font-size: 13px;
-    color: white;
 }
 </style>

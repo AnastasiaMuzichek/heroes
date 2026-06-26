@@ -10,23 +10,30 @@
 }
 
 body {
-    height: 100vh;
     background-image: url('./assets/images/backdrop.png');
-    height: 100%;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-
-    display: flex;
-    justify-content: center;
-
     margin: 0;
 }
 
 #app {
     box-sizing: border-box;
-    height: inherit;
+    height: 100vh;
     overflow: hidden;
     width: 100%;
     padding: 2rem;
+}
+
+.p-x4 {
+    padding: 16px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.font-crimson-bold {
+    font-family: 'Crimson Text SemiBold';
+    font-weight: bold;
 }

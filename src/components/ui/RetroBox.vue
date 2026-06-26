@@ -24,6 +24,7 @@ const sides = ['lt', 'rt', 'lb', 'rb'];
     align-self: flex-start;
     background-color: #000;
     border: 2px solid #a58c42;
+    box-sizing: border-box;
     display: inline-flex;
     padding: 2px;
 }
@@ -32,10 +33,11 @@ const sides = ['lt', 'rt', 'lb', 'rb'];
     border: 2px solid #a58c42;
     padding: 16px;
     position: relative;
+    width: inherit;
 }
 .retro-box-content-ornament {
     height: 32px;
-    position: absolute;    
+    position: absolute;
     z-index: 10;
 }
 .retro-box-content-ornament-lb {
@@ -56,5 +58,55 @@ const sides = ['lt', 'rt', 'lb', 'rb'];
     right: -1px;
     top: -1px;
     transform: rotate(180deg);
+}
+
+@media (min-width: 320px) {
+    .retro-box-content {
+        padding: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .retro-box-content {
+        padding: 16px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .retro-box {
+        border-width: 3px;
+        padding: 3px;
+    }
+    .retro-box-content {
+        border-width: 3px;
+    }
+    .retro-box-content-ornament {
+        height: 42px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .retro-box {
+        border-width: 4px;
+        padding: 4px;
+    }
+    .retro-box-content {
+        border-width: 4px;
+    }
+    .retro-box-content-ornament {
+        height: 52px;
+    }
+    .retro-box-content {
+        padding: 20px;
+    }
+}
+
+@media (min-width: 2560px) {
+    .retro-box-content-ornament {
+        height: 58px;
+    }
+    .retro-box-content {
+        padding: 35px;
+    }
 }
 </style>
