@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RetroBox from './RetroBox.vue';
-import { getImageHref } from '../../utils';
+import { getImageSkill } from '../../utils';
 import type { SkillValue } from '../../types';
 
 defineProps({
@@ -15,7 +15,7 @@ defineProps({
     <RetroBox class="skills-panel">
         <div v-for="item in items" class="skills-panel-item">
             <div class="skills-panel-item-image">
-                <img :src="getImageHref('/skills/' + item.name + '.webp')" />
+                <img :src="getImageSkill(item.name)" />
             </div>
             <div class="skills-panel-item-info">
                 <h6>{{ item.title }}</h6>

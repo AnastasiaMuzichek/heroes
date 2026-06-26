@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import RetroBox from './RetroBox.vue';
-import { getImageHref } from '../../utils';
+import { getImageCity } from '../../utils';
 import type { PropType } from 'vue';
 import type { CityVariant } from '../../types';
 
@@ -16,7 +16,7 @@ const props = defineProps({
     },
 });
 
-const image = computed(() => getImageHref(`/cities/${props.name}.webp`));
+const image = computed(() => getImageCity(props.name));
 </script>
 
 <template>
