@@ -11,11 +11,11 @@ export default defineConfig({
             targets: [
                 {
                     src: 'src/assets/images/cities/*.webp', // Шаблон для поиска файлов
-                    dest: 'assets/images/cities', // Целевая папка в dist
+                    dest: 'assets/assets/images/cities', // Целевая папка в dist
                 },
                 {
                     src: 'src/assets/images/skills/*.webp', // Шаблон для поиска файлов
-                    dest: 'assets/images/skills', // Целевая папка в dist
+                    dest: 'assets/assets/images/skills', // Целевая папка в dist
                 },
             ],
         }),
